@@ -12,7 +12,9 @@ Laravel is accessible, yet powerful, providing powerful tools needed for large, 
 
 ## INSTALLATION
 
-1 - Set up the database credentials
-2 - Run the code -php artisan migrate
-3 - run the server
+1 - Set up the database credentials.
+
+2 - Run the code -php artisan migrate.
+
+3 - run the server.
 
