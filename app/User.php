@@ -34,7 +34,7 @@ class User extends Authenticatable
     }
     public static function getUser($id){
         return DB::select("SELECT u.id,u.name,u.email,(SELECT COUNT(f.id) FROM follows AS f WHERE f.user_following_id=u.id) AS following,(SELECT COUNT(f.id) FROM follows AS f WHERE f.user_follower_id=u.id) AS follower,(SELECT COUNT(t.id) FROM tweets AS t WHERE t.user_id=u.id) AS tweets
-                            FROM users AS u, tweets AS t
+                            FROM users AS u
                             WHERE u.email='$id'
                             GROUP BY u.id");
     }
