@@ -31,6 +31,14 @@ class UsersController extends Controller
         }
 
     }
+    public function recommended($id){
+        $user=User::getUser($id);
+        if($user){
+            $users=User::recommendedUsers($user[0]->id);
+            return response()->json($users);
+        }
+
+    }
     public function related($id){
     	// $users=User::rand();
     }

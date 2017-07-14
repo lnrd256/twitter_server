@@ -38,5 +38,15 @@ class User extends Authenticatable
                             WHERE u.email='$id'
                             GROUP BY u.id");
     }
+    public static function recommendedUsers($id){
+        return DB::select("SELECT *
+                            FROM users
+                            WHERE id!=$id AND id NOT IN (SELECT user_following_id
+                            FROM users,follows
+                            WHERE users.id = user_following_id )
+                            ORDER BY RAND()
+                            LIMIT 3");
+    }
+
 
 }

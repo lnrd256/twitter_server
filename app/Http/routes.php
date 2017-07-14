@@ -22,8 +22,8 @@ Route::resource('tweet','TweetsController',['except' => [
 Route::post('retweet','TweetsController@retweet');
 Route::get('usertweet/{id}','TweetsController@usertweet');
 Route::resource('like','LikeController',['except'=>['create','edit']]);
-
 Route::get('user/{id}','UsersController@show');
+Route::get('recommended/{id}','UsersController@recommended');
 /*
 |--------------------------------------------------------------------------
 | Application Routes
