@@ -19,8 +19,7 @@ class TweetsController extends Controller
      */
     public function index()
     {
-        $tweets=Tweet::where('id','>',1)->paginate(2);
-
+       $tweets=Tweet::getTweets();
         return response()->json($tweets);
     }
 
@@ -82,7 +81,8 @@ class TweetsController extends Controller
 
     public function usertweet($id)
     {
-        $tweets=Tweet::getTweetsToUser($id);
+         $user=User::getUser($id);
+        $tweets=Tweet::getTweetsToUser($user[0]->id);
         return response()->json($tweets);
     }
 
